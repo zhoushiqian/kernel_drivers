@@ -1,0 +1,43 @@
+&blsp1_uart0 {
+ 	status = "ok";
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&uart_console_active>;
++//	pinctrl-names = "default";
++//	pinctrl-0 = <&uart_console_active>;
+ };
+pins_mix_config {
+	gpio_select: gpio_select {
+		mux {
+			pins = "gpio4", "gpio5";
+			function = "gpio";
+			};
+
+			config {
+				pins = "gpio4", "gpio5";
+				drive-strength = <2>;
+				bias-disable;
+			};
+	};
+
+	uart_select: uart_select {
+		mux {
+			pins = "gpio4", "gpio5";
+			function = "blsp_uart2";
+		};
+		config {
+			pins = "gpio4", "gpio5";
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+
+};
+
+
+
+pins_mux {      
+   		compatible = "pins-mux";
+       	pinctrl-names = "gpio", "uart";
+       	pinctrl-0 = <&gpio_select>;
+       	pinctrl-1 = <&uart_select>;
+};
