@@ -1,2 +1,2 @@
-# pins_mux
-This is a pins_mux for pin function dynamic change
+# Introduce
+These files can be referenced in the future, So write it down and keep it.
